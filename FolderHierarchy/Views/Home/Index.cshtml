@@ -1,0 +1,17 @@
+﻿@model FolderHierarchy.ViewModels.ParentFolder
+
+<h2>Folder: @Model.FolderName</h2>
+<hr>
+@if (Model.childrenFolders.Count > 0)
+{
+    foreach (var folder in Model.childrenFolders)
+    {
+       
+        @Html.ActionLink(folder.FolderName, "Index", "Home", new { folderLink = folder.FolderLink }, null)
+        <br>
+    }
+}
+else
+{
+    <span>Current folder doesn't have child folders</span>
+}
